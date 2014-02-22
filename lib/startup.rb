@@ -83,11 +83,13 @@ set :session_secret, SecretCreator.create_secret("Who is your daddy and what doe
 
 ## Informative messaging
 
-puts ""
+configure :development, :example do
+  puts ""
 
-puts "You can create external tunnels when developing locally using `localtunnel <port>`"
-puts "More info here: http://progrium.com/localtunnel/"
-puts ""
+  puts "You can create external tunnels when developing locally using `localtunnel <port>`"
+  puts "More info here: http://progrium.com/localtunnel/"
+  puts ""
+end
 
 ## Environment messaging
 ## http://stackoverflow.com/questions/5832060/sinatra-configuring-environments-on-the-fly
@@ -103,11 +105,16 @@ puts ""
 ## Initialize ##
 ################
 
-#Dir["./app/routers/**.rb"].each {|file| require file} # be careful with order of load here, if there are similar routes, the first loaded will take precedence
-#Dir["./app/models/**.rb"].each {|file| require file}
+configure :development, :staging, :production do
+  Dir["./app/routers/**.rb"].each {|file| require file} # be careful with order of load here, if there are similar routes, the first loaded will take precedence
+  Dir["./app/models/**.rb"].each {|file| require file}
+end
 
-Dir["./doc/example-app/routers/**.rb"].each {|file| require file} # example app, should be removed so there are no conflicts
-Dir["./doc/example-app/models/**.rb"].each {|file| require file}  # example app, should be removed so there are no conflicts
+
+configure :example do
+  Dir["./doc/example-app/routers/**.rb"].each {|file| require file}
+  Dir["./doc/example-app/models/**.rb"].each {|file| require file}
+end
 
 ####################
 ## Database Setup ##
@@ -120,7 +127,7 @@ configure :production do
   # ENV is a hash-like accessor for environment variables.
   # http://ruby-doc.org/core-1.9.3/ENV.html
 
-  DataMapper.setup(:default, ENV['DATABASE_URL'])
+  DataMapper.setup(:default, ENV['DATABASE_URL']) if ENV['DATABASE_URL']
   DataMapper.finalize # required after all classes using DataMapper to check their integrity. It needs to be called before the app starts interacting with any classes.
 end
 
