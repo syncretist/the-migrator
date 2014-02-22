@@ -3,8 +3,8 @@
 
   ["My dad migrates orgs..."](http://www.youtube.com/watch?v=nP2xnAMQ3HM)
 
-## Bash scripting
-**for simple access to run in various environment modes**
+## Bash script startup
+*for simple access to run in various environment modes*
 
 - add the following to your `~/.bash_aliases` for quick startup menu with ```the-migrator [environment-mode]``` at bash
 
