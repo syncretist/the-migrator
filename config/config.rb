@@ -6,6 +6,16 @@ module Configuration
   module Webapp
     require 'sinatra'
   end
+  module Database
+    require 'dm-core'
+    require 'dm-migrations'
+  end
+  module RenderingEngines
+    require 'slim'
+  end
+  module CssTools
+    require 'sass'
+  end
   module DevelopmentTools
     require 'sinatra/reloader'
   end

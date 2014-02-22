@@ -1,0 +1,15 @@
+<section>
+<% title = @song.title || ":: no title for song ::" %>
+<h1><%= title %></h1>
+<p>Release Date: <%= @song.released_on.strftime("%e %B %Y") if @song.released_on %></p>
+<p>Length: <%= @song.length ? @song.length/60 : ":: no song length in minutes ::" %> minutes <%= @song.length ? @song.length%60 : ":: no song length in seconds ::" %> seconds</p>
+<pre><%= @song.lyrics || ":: no lyrics for song ::" %></pre>
+<p><a href="/songs/<%= @song.id %>/edit">edit this song</a></p>
+<form action="/songs/<%= @song.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete this song">
+</form>
+</section>
+<footer>
+  <%= erb :'views/songs/song_footer_nav_partial' %>
+</footer>

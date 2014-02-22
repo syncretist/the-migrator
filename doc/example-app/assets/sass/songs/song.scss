@@ -1,0 +1,63 @@
+$what: #192;
+$red: #903;
+$blacka: #254;
+$whitea: #687;
+$main-font: Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $main-font;
+}
+
+h1 {
+  color: $what;
+  font: 32px/1 $main-font;
+}
+
+header h1 {
+  font-size: 40px;
+  line-height: 80px;
+  background: transparent url(/images/Corduroy-Pattern05.png) 0 0;
+  padding-left: 84px;
+}
+
+@mixin tabs ($background: blue, $color: yellow) {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: $background;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    background: $background;
+    color: $color;
+    &:hover {
+      background: darken($background, 20%);
+    }
+  }
+}
+
+nav {
+  @include tabs ($background: $blacka, $color: $whitea);
+  font-weight: bold;
+}
+
+footer a{
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  background: $what;
+  color: $red;
+  &:hover {
+    background: darken($red, 20%);
+  }
+}
+
+label { display: block; }
+

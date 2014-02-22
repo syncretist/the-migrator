@@ -1,0 +1,14 @@
+<% title = "Songs" %>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="/song.css" rel="stylesheet">
+  <link id="page_favicon" href="favicon.ico" rel="icon" type="image/x-icon">
+  <title><%= title %></title>
+</head>
+<header>
+  <%= erb :'views/songs/song_header_nav_partial' %>
+</header>
+<%= yield %>

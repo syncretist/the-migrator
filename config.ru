@@ -6,13 +6,6 @@ require './lib/startup.rb'
 
 run Sinatra::Application
 
-# Environment specific actions
-# http://stackoverflow.com/questions/5832060/sinatra-configuring-environments-on-the-fly
-
-configure(:production ){ p "PRODUCTION MODE"  }
-configure(:development){ p "DEVELOPMENT MODE" }
-configure(:staging    ){ p "STAGING MODE"     }
-
 # cd <project root>/
 # Usage: `rackup` [ruby options] [rack options] [rackup config]
 #
