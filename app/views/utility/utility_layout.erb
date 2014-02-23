@@ -1,0 +1,21 @@
+<% title = "Migrator Utility" %>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- link href="styles.css" rel="stylesheet"-->
+  <!-- link id="page_favicon" href="favicon.ico" rel="icon" type="image/x-icon" -->
+  <title><%= title %></title>
+</head>
+<body>
+<header>
+  <h1><%= title %></h1>
+  <%#= erb :'views/nav_partial' %>
+  <a href="/">back</a>
+</header>
+<section>
+  <%= yield %>
+</section>
+</body>
+</html>

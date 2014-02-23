@@ -1,0 +1,14 @@
+<section>
+<% if @test_results.any? %>
+  <ul id='test-results-index'>
+     <% @test_results.each do |result| %>
+      <li><p><%= "ORG: " + (result.organization_id.to_s || '') %></p>
+          <p><%= "TEST: " +(result.test_name || '') %></p>
+          <p><%= "RESULTS: " + (result.test_results || '') %></p>
+          <p><%= "RECEIVED @ " + (result.created_at.to_s || '' ) %></p></li>
+     <% end %>
+     </ul>
+<% else %>
+    <p>No test results have been posted yet!</p>
+     <% end %>
+</section>

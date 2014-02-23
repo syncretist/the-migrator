@@ -1,0 +1,65 @@
+/*
+TABLE OF CONTENTS
+
+HTML ELEMENTS
+BOOTSTRAP OVERRIDES
+ADDITIONAL CLASSES
+FONTS
+/*
+
+
+
+/* HTML Elements */
+body {
+  background-image: url('../images/stardust.png');
+}
+
+/* Bootstrap Overrides */
+
+.navbar {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+/* Additional Classes */
+.l_semiwhite {
+  background: rgba(256, 256, 256, .6);
+}
+
+.l_ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.l_ul li {
+  padding-left: 0;
+}
+
+.l_no_top_margin {
+  margin-top: 0;
+}
+
+.l_no_bottom_margin {
+  margin-bottom: 0;
+}
+
+.l_20_bottom_margin {
+  margin-bottom: 20px;
+}
+
+/* Fonts */
+.ruda400 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 400;
+}
+
+.ruda700 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 700;
+}
+
+.ruda900 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 900;
+}

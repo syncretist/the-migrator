@@ -1,0 +1,21 @@
+<section>
+  <% title = "Test Sessions" %>
+  <h1><%= title %></h1>
+
+  <p><a href="/new" id="test-session-create-new">Create New Test Session</a></p>
+
+  <% if @test_sessions.any? %>
+      <ul id='test-session-index'>
+        <% @test_sessions.each do |session| %>
+            <li><a href="/<%= session.id || '::no id::' %>"><%= session.session_date || '::no date listed for this session::' %></a>
+              <form action="/<%= session.id %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="delete this session">
+              </form>
+            </li>
+        <% end %>
+      </ul>
+  <% else %>
+      <p>No sessions have been scheduled yet.</p>
+  <% end %>
+</section>
