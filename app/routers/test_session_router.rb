@@ -15,6 +15,7 @@ test_session_layout  = :'views/test-sessions/test_session_layout'
 
 get '/' do
   @test_sessions = TestSession.all
+  # redirect to TestSession.all(:fields => [:id]).last[:id]
   erb :'views/test-sessions/test_sessions', :layout => test_session_layout
 end
 
@@ -31,6 +32,7 @@ end
 
 get '/:id' do
   @test_session = TestSession.get(params[:id])
+  @test_sessions = TestSession.all
   erb :'views/test-sessions/show_test_session', :layout => test_session_layout
 end
 

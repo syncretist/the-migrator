@@ -14,6 +14,17 @@ body {
   background-image: url('../images/stardust.png');
 }
 
+h1 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 900;
+}
+
+hr {
+  border: 0;
+  background-color: #808080;
+  height: 1px;
+}
+
 /* Bootstrap Overrides */
 
 .navbar {

@@ -1,14 +1,21 @@
-<section>
-<% if @test_results.any? %>
-  <ul id='test-results-index'>
-     <% @test_results.each do |result| %>
-      <li><p><%= "ORG: " + (result.organization_id.to_s || '') %></p>
-          <p><%= "TEST: " +(result.test_name || '') %></p>
-          <p><%= "RESULTS: " + (result.test_results.to_s || '') %></p>
-          <p><%= "RECEIVED @ " + (result.created_at.to_s || '' ) %></p></li>
-     <% end %>
-     </ul>
-<% else %>
-    <p>No test results have been posted yet!</p>
-     <% end %>
+<%= erb :'views/test-sessions/nav_partial' %>
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-12 container l_semiwhite ruda400"><% if @test_results.any? %>
+
+      <ul id='test-results-index'>
+         <% @test_results.each do |result| %>
+          <li><p><%= "ORG: " + (result.organization_id.to_s || '') %></p>
+              <p><%= "TEST: " +(result.test_name || '') %></p>
+              <p><%= "RESULTS: " + (result.test_results.to_s || '') %></p>
+              <p><%= "RECEIVED @ " + (result.created_at.to_s || '' ) %></p></li>
+         <% end %>
+         </ul>
+    <% else %>
+        <h1>Test Results</h1>
+        <p>No test results have been posted yet!</p>
+         <% end %>
+    </div>
+  </div>
 </section>
