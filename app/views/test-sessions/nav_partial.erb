@@ -14,7 +14,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/">Test Sessions</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Test Sessions <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% if @test_sessions.any? %>
+              <% @test_sessions.each do |session| %>
+                <li><a href="/<%= session.id || '::no id::' %>"><%= session.session_date || '::no date listed for this session::' %></a>
+                </li>
+              <% end %>
+            <% else %>
+              <li><a>No sessions have been scheduled yet.</a>
+            <% end %>
+            <li class="divider"></li>
+            <li><a href="#">Create</a></li>
+          </ul>
+        </li>
         <li><a href="/utilities/test_results">Test Result Posts Utility View</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

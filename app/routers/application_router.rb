@@ -25,6 +25,7 @@ utility_layout  = :'views/utility/utility_layout'
 
 get '/utilities/test_results' do
   @test_results = TestResult.all
+  @test_sessions = TestSession.all
   erb :'views/utility/test_results', :layout => utility_layout
 end
 

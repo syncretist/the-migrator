@@ -28,12 +28,6 @@
     <div class="col-md-12 l_20_bottom_margin">
       <h1 class="ruda900 l_no_bottom_margin">Test Session for <%= @test_session.session_date %></h1>
       <em>Verification Last Updated:</em> <%= Time.now.strftime('%l:%M:%S') %>
-      <p><a href="/<%= @test_session.id %>/edit">edit</a></p>
-      <form action="/<%= @test_session.id %>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete">
-      </form>
-      <br>
     </div>
   </div>
 
@@ -41,62 +35,74 @@
     <div class="col-md-3">
       <ul class="l_ul">
         <% @test_session.organization_list.each do |organization_id| %>
-            <li><a href="#">ORG ID: <%= organization_id %></a></li>
+            <li><a href="#" class="menu_item" id="menu_<%= organization_id %>" data-result="<%= organization_id %>">ORG ID: <%= organization_id %></a></li>
         <% end %>
       </ul>
+      <hr>
+      <button class="btn" href="/<%= @test_session.id %>/edit">edit</button>
+      <form action="/<%= @test_session.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete">
+      </form>
+
     </div>
 
     <div class="col-md-9">
-      <h2 class="ruda900 l_no_top_margin">ORG # (ORG Name)</h2>
-      <strong>Automatated Verification Phases Passed:</strong> 13/15<br><br>
 
-      <em>Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</em><br>
-      Status<br><br>
+      <% @test_session.organization_list.each do |organization_id| %>
+        <div class="results" id="result_<%= organization_id %>">
+          <h2 class="ruda900 l_no_top_margin">ORG #<%= organization_id %> (ORG Name)</h2>
+          <strong>Automatated Verification Phases Passed:</strong> 13/15<br><br>
 
-      <em>Are the Global Key counts OK?</em><br>
-      Status<br><br>
+          <em>Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</em><br>
+          Status<br><br>
 
-      <em>Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?</em><br>
-      Status<br><br>
+          <em>Are the Global Key counts OK?</em><br>
+          Status<br><br>
 
-      <em>Key sample investigation</em><br>
-      Status<br><br>
+          <em>Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?</em><br>
+          Status<br><br>
 
-      <em>Do all key admins have access to the okm?</em><br>
-      Status<br><br>
+          <em>Key sample investigation</em><br>
+          Status<br><br>
 
-      <em>Is the subdomain correct?</em><br>
-      Status<br><br>
+          <em>Do all key admins have access to the okm?</em><br>
+          Status<br><br>
 
-      <em>AS ADMIN: Is the information in my profile accurate?</em><br>
-      Status<br><br>
+          <em>Is the subdomain correct?</em><br>
+          Status<br><br>
 
-      <em>Can I click on all the main links without having a 500 error?</em><br>
-      Status<br><br>
+          <em>AS ADMIN: Is the information in my profile accurate?</em><br>
+          Status<br><br>
 
-      <em>Can I navigate through all the keys states without having a 500 error?</em><br>
-      Status<br><br>
+          <em>Can I click on all the main links without having a 500 error?</em><br>
+          Status<br><br>
 
-      <em>Does global search function properly?</em><br>
-      Status<br><br>
+          <em>Can I navigate through all the keys states without having a 500 error?</em><br>
+          Status<br><br>
 
-      <em>Has the key state script been properly run? Check in global search to make sure key states match.</em><br>
-      Status<br><br>
+          <em>Does global search function properly?</em><br>
+          Status<br><br>
 
-      <em>Do groups seem consistent?</em><br>
-      Status<br><br>
+          <em>Has the key state script been properly run? Check in global search to make sure key states match.</em><br>
+          Status<br><br>
 
-      <em>Do all users have profiles?</em><br>
-      Status<br><br>
+          <em>Do groups seem consistent?</em><br>
+          Status<br><br>
 
-      <em>Do all users have course records?</em><br>
-      Status<br><br>
+          <em>Do all users have profiles?</em><br>
+          Status<br><br>
 
-      <em>Are there any 'inactive' key states?</em><br>
-      Status<br><br>
+          <em>Do all users have course records?</em><br>
+          Status<br><br>
 
-      <em>Can users in progress at external courses continue where they left off externally?</em><br>
-      Status<br><br>
+          <em>Are there any 'inactive' key states?</em><br>
+          Status<br><br>
+
+          <em>Can users in progress at external courses continue where they left off externally?</em><br>
+          Status<br><br>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -107,5 +113,17 @@
 <script src="js/bootstrap.min.js"></script>
 <!--  Google Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Ruda:400,700,900' rel='stylesheet' type='text/css'>
+
+
+<script>
+  $( ".results" ).hide();
+
+  $( ".menu_item" ).click(function() {
+    $( ".results" ).hide();
+    var result = $(this).data("result")
+    $("#result_"+result).show();
+  });
+</script>
+
 </body>
 </html>
