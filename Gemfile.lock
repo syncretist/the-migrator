@@ -117,6 +117,7 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-sqlite-adapter
+  dm-types
   localtunnel
   pry-debugger
   pry-remote

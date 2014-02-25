@@ -14,6 +14,7 @@ gem 'sass'
 gem 'sqlite3'
 gem 'dm-sqlite-adapter'
 gem 'data_mapper'
+gem 'dm-types' # for json and yaml
 
 # webserver utilities
 gem 'localtunnel'

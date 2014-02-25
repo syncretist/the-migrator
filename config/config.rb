@@ -10,6 +10,7 @@ module Configuration
     require 'dm-core'
     require 'dm-migrations'
     require 'dm-timestamps' # http://datamapper.org/docs/dm_more/timestamps.html
+    require 'dm-types' # http://datamapper.org/docs/dm_more/types.html
   end
   module RenderingEngines
     require 'slim'
