@@ -11,12 +11,18 @@ FONTS
 
 /* HTML Elements */
 body {
-  background-image: url('../images/stardust.png');
+  background-image: url('../images/ao.gif');
 }
+
+a:link {color:#272830;}
+a:visited {color:#272830;}
+a:hover {color:#30333b;}
+a:active {color:#2b2e36;}
 
 h1 {
   font-family: 'Ruda', sans-serif;
   font-weight: 900;
+  color: #30333b;
 }
 
 hr {
