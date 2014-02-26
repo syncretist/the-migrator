@@ -75,6 +75,26 @@ hr {
   margin-bottom: 20px;
 }
 
+.questions {
+  margin-top: 20px;
+}
+
+.individual_question{
+  margin-bottom: 10px;
+}
+
+.question_success{
+  color: #295E06;
+}
+
+.question_fail{
+  color: #882533;
+}
+
+.individual_answer {
+  font-size: 12px;
+}
+
 /* Fonts */
 .ruda400 {
   font-family: 'Ruda', sans-serif;
