@@ -1,4 +1,4 @@
-<div class="individual_question">
+<div class="individual_question" id="<%= @current_organization %>_admins_with_organization_access">
   <h4 class="ruda700">Do all key admins have access to the OKM?</h4>
 
   <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
@@ -20,8 +20,13 @@
           <% end %><br>
         </span>
       <% end %>
+  <%= erb :'views/test-sessions/manual_trigger'%>
+
   <% else %>
-  <span class="individual_answer">Automated results have not yet been posted for this test.</span>
+  
+    <span class="individual_answer">Automated results have not yet been posted for this test.</span>
+  
   <% end %>
+
 </div>
 <%= erb :'views/test-sessions/manual_trigger', :locals => { :test_name => test_name } %>

@@ -34,29 +34,47 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <ul class="l_ul">
         <% @test_session.scheduled_organization_list.each do |organization_id| %>
             <li><a href="#" class="menu_item" id="menu_<%= organization_id %>" data-result="<%= organization_id %>">ORG ID: <%= organization_id %></a></li>
         <% end %>
       </ul>
       <hr>
-      <button class="btn" href="/<%= @test_session.id %>/edit">edit</button>
-      <form action="/<%= @test_session.id %>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete">
-      </form>
+      <div>
+        <button class="btn btn-sm" href="/<%= @test_session.id %>/edit" style="display: inline;">Edit </button>
+        <form action="/<%= @test_session.id %>" method="POST"  style="display: inline;">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete" class="btn btn-sm" style="display: inline;">
+        </form>
+      </div>
 
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-10">
 
       <% @test_session.scheduled_organization_list.each do |organization_id| %>
         <% @current_organization = organization_id%>
         <div class="results" id="result_<%= @current_organization %>">
           <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> (ORG Name)</h2>
           <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: 13/15</h3>
-
+          <ul class="test_progress">
+            <li>Test 1 (Passed / Failed)</li>
+            <li>Test 2 (Passed / Failed)</li>
+            <li>Test 3 (Passed / Failed)</li>
+            <li>Test 4 (Passed / Failed)</li>
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_admins_with_organization_access">Do all key admins have access to the OKM? (Passed / Failed)</a></li>
+            <li>Test 6 (Passed / Failed)</li>
+            <li>Test 7 (Passed / Failed)</li>
+            <li>Test 8 (Passed / Failed)</li>
+            <li>Test 9 (Passed / Failed)</li>
+            <li>Test 10 (Passed / Failed)</li>
+            <li>Test 11 (Passed / Failed)</li>
+            <li>Test 12 (Passed / Failed)</li>
+            <li>Test 13 (Passed / Failed)</li>
+            <li>Test 14 (Passed / Failed)</li>
+            <li>Test 15 (Passed / Failed)</li>
+          </ul>
           <%= erb :'views/test-sessions/questions' %>
 
         </div>
@@ -83,5 +101,13 @@
   });
 </script>
 
+<script>
+  var $root = $('html, body');
+  $('.task_list').click(function() {
+    var question_w_org = $(this).data("question_w_org")
+    // alert(question_w_org);
+    $('html, body').animate({scrollTop:$('#'+question_w_org).position().top}, 'slow');
+  });
+</script>
 </body>
 </html>
