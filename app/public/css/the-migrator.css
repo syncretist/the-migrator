@@ -84,7 +84,7 @@ hr {
 }
 
 .question_success{
-  color: #295E06;
+  color: #677E3A;
 }
 
 .question_fail{
@@ -93,6 +93,16 @@ hr {
 
 .individual_answer {
   font-size: 12px;
+}
+
+.fader {
+  -o-transition:color .3s ease-out;
+  -ms-transition:color .3s ease-out;
+  -moz-transition:color .3s ease-out;
+  -webkit-transition:color .3s ease-out;
+
+  /* ...and now override with proper CSS property */
+  transition:color .3s ease-out, background 1s ease-in;
 }
 
 /* Fonts */
