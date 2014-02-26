@@ -23,7 +23,7 @@
 
 <%= erb :'views/test-sessions/nav_partial' %>
 
-<%= erb :'views/test-sessions/temp_dump' %>
+<%#= erb :'views/test-sessions/temp_dump' %>
 
 <div class="container l_semiwhite ruda400">
   <div class="row">
@@ -54,55 +54,10 @@
       <% @test_session.scheduled_organization_list.each do |organization_id| %>
         <div class="results" id="result_<%= organization_id %>">
           <h2 class="ruda900 l_no_top_margin">ORG #<%= organization_id %> (ORG Name)</h2>
-          <strong>Automatated Verification Phases Passed:</strong> 13/15<br><br>
+          <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: 13/15</h3>
 
-          <em>Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</em><br>
-          Status<br><br>
+          <%= erb :'views/test-sessions/questions' %>
 
-          <em>Are the Global Key counts OK?</em><br>
-          Status<br><br>
-
-          <em>Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?</em><br>
-          Status<br><br>
-
-          <em>Key sample investigation</em><br>
-          Status<br><br>
-
-          <em>Do all key admins have access to the OKM?</em><br>
-          Status<br><br>
-
-          <em>Is the subdomain correct?</em><br>
-          Status<br><br>
-
-          <em>AS ADMIN: Is the information in my profile accurate?</em><br>
-          Status<br><br>
-
-          <em>Can I click on all the main links without having a 500 error?</em><br>
-          Status<br><br>
-
-          <em>Can I navigate through all the keys states without having a 500 error?</em><br>
-          Status<br><br>
-
-          <em>Does global search function properly?</em><br>
-          Status<br><br>
-
-          <em>Has the key state script been properly run? Check in global search to make sure key states match.</em><br>
-          Status<br><br>
-
-          <em>Do groups seem consistent?</em><br>
-          Status<br><br>
-
-          <em>Do all users have profiles?</em><br>
-          Status<br><br>
-
-          <em>Do all users have course records?</em><br>
-          Status<br><br>
-
-          <em>Are there any 'inactive' key states?</em><br>
-          Status<br><br>
-
-          <em>Can users in progress at external courses continue where they left off externally?</em><br>
-          Status<br><br>
         </div>
       <% end %>
     </div>

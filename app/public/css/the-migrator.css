@@ -75,6 +75,36 @@ hr {
   margin-bottom: 20px;
 }
 
+.questions {
+  margin-top: 20px;
+}
+
+.individual_question{
+  margin-bottom: 10px;
+}
+
+.question_success{
+  color: #677E3A;
+}
+
+.question_fail{
+  color: #882533;
+}
+
+.individual_answer {
+  font-size: 12px;
+}
+
+.fader {
+  -o-transition:color .3s ease-out;
+  -ms-transition:color .3s ease-out;
+  -moz-transition:color .3s ease-out;
+  -webkit-transition:color .3s ease-out;
+
+  /* ...and now override with proper CSS property */
+  transition:color .3s ease-out, background 1s ease-in;
+}
+
 /* Fonts */
 .ruda400 {
   font-family: 'Ruda', sans-serif;
