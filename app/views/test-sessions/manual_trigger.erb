@@ -1,12 +1,12 @@
 <form action="/utilities/test_results" method="POST">
   <input id='manual-fail-organization-id' type='hidden' name='organization_id' value='<%= 1042 %>'>
-  <input id='manual-fail-test-name' type='hidden' name='test_name' value='<%= 'fake-test' %>'>
+  <input id='manual-fail-test-name' type='hidden' name='test_name' value='<%= test_name %>'>
   <input id='manual-fail-test-results' type='hidden' name='test_results' value='<%= { :outcome => :fail }.to_json %>'>
   <input type="submit" value="fail">
 </form>
 <form action="/utilities/test_results" method="POST">
   <input id='manual-pass-organization-id' type='hidden' name='organization_id' value='<%= 1042 %>'>
-  <input id='manual-pass-test-name' type='hidden' name='test_name' value='<%= 'fake-test' %>'>
+  <input id='manual-pass-test-name' type='hidden' name='test_name' value='<%= test_name %>'>
   <input id='manual-pass-test-results' type='hidden' name='test_results' value='<%= { :outcome => :pass }.to_json %>'>
   <input type="submit" value="pass">
 </form>

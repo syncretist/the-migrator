@@ -1,8 +1,8 @@
 <div class="individual_question">
   <h4 class="ruda700">Do all key admins have access to the OKM?</h4>
 
-  <% if @test_session.organization_has_test_results?(@current_organization, 'admins_with_organization_access') %>
-      <% @test_session.get_latest_result_for_test_by_organization(@current_organization, 'admins_with_organization_access').each do |key, value| %>
+  <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
+      <% @test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
         <span class="individual_answer <% if value['is_in_database?'] == 'yes' && value['can_log_in?'] == 'yes' %>question_success<% else %>question_fail<% end %>">
 
           <%= value['admin_email'] %>
@@ -24,4 +24,4 @@
   <span class="individual_answer">Automated results have not yet been posted for this test.</span>
   <% end %>
 </div>
-<%= erb :'views/test-sessions/manual_trigger'%>
+<%= erb :'views/test-sessions/manual_trigger', :locals => { :test_name => test_name } %>
