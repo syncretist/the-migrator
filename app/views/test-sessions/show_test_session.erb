@@ -105,11 +105,8 @@
   var $root = $('html, body');
   $('.task_list').click(function() {
     var question_w_org = $(this).data("question_w_org")
-    alert(question_w_org);
-    // $root.animate({
-    //   scrollTop: $( $.attr(this, 'href') ).offset().top
-    // }, 500);
-    return false;
+    // alert(question_w_org);
+    $('html, body').animate({scrollTop:$('#'+question_w_org).position().top}, 'slow');
   });
 </script>
 </body>
