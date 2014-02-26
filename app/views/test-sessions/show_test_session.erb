@@ -106,6 +106,7 @@
   $('.task_list').click(function() {
     var question_w_org = $(this).data("question_w_org")
     // alert(question_w_org);
+    
     $('html, body').animate({scrollTop:$('#'+question_w_org).position().top}, 'slow');
   });
 </script>
