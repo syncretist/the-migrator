@@ -11,6 +11,7 @@ module Configuration
     require 'dm-migrations'
     require 'dm-timestamps' # http://datamapper.org/docs/dm_more/timestamps.html
     require 'dm-types' # http://datamapper.org/docs/dm_more/types.html
+    require 'json'
   end
   module RenderingEngines
     require 'slim'

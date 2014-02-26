@@ -30,7 +30,6 @@ get '/utilities/test_results' do
 end
 
 post '/utilities/test_results' do
-  #@test_result = TestResult.new
   TestResult.create(params)
   logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
 end
