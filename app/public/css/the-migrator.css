@@ -75,6 +75,10 @@ hr {
   margin-bottom: 20px;
 }
 
+.l_10_top_margin {
+  margin-top: 10px;
+}
+
 .questions {
   margin-top: 20px;
 }
@@ -103,6 +107,11 @@ hr {
 
   /* ...and now override with proper CSS property */
   transition:color .3s ease-out, background 1s ease-in;
+}
+
+.test_progress
+{
+list-style-type:square;
 }
 
 /* Fonts */
