@@ -14,6 +14,16 @@ body {
   background-image: url('../images/ao.gif');
 }
 
+a {
+  -o-transition:color .3s ease-out;
+  -ms-transition:color .3s ease-out;
+  -moz-transition:color .3s ease-out;
+  -webkit-transition:color .3s ease-out;
+
+  /* ...and now override with proper CSS property */
+  transition:color .3s ease-out, background 1s ease-in;
+}
+
 a:link {color:#272830;}
 a:visited {color:#272830;}
 a:hover {color:#30333b;}
