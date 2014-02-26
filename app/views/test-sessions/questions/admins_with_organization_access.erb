@@ -2,7 +2,7 @@
   <h4 class="ruda700">Do all key admins have access to the OKM?</h4>
 
   <%# unless @test_session.has_test_result? %>
-      <% @test_session.get_latest_result_for_test_by_organization(1042, 'admins_with_organization_access').each do |key, value| %>
+      <% @test_session.get_latest_result_for_test_by_organization(@current_organization, 'admins_with_organization_access').each do |key, value| %>
         <span class="individual_answer <% if value['is_in_database?'] == 'yes' && value['can_log_in?'] == 'yes' %>question_success<% else %>question_fail<% end %>">
 
           <%= value['admin_email'] %>

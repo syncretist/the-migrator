@@ -54,8 +54,9 @@
     <div class="col-md-10">
 
       <% @test_session.scheduled_organization_list.each do |organization_id| %>
-        <div class="results" id="result_<%= organization_id %>">
-          <h2 class="ruda900 l_no_top_margin">ORG #<%= organization_id %> (ORG Name)</h2>
+        <% @current_organization = organization_id%>
+        <div class="results" id="result_<%= @current_organization %>">
+          <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> (ORG Name)</h2>
           <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: 13/15</h3>
           <ul class="test_progress">
             <li>Test 1 (Passed / Failed)</li>

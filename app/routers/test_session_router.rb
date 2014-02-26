@@ -15,8 +15,12 @@ test_session_layout  = :'views/test-sessions/test_session_layout'
 
 get '/' do
   @test_sessions = TestSession.all
-  redirect to TestSession.all(:fields => [:id]).last[:id]
-  # erb :'views/test-sessions/test_sessions', :layout => test_session_layout
+
+  if @test_sessions.empty?
+    erb :'views/test-sessions/test_sessions', :layout => test_session_layout
+  else
+    redirect to TestSession.all(:fields => [:id]).last[:id]
+  end
 end
 
 post '/' do
