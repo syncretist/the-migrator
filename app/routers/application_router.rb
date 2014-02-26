@@ -32,4 +32,5 @@ end
 post '/utilities/test_results' do
   TestResult.create(params)
   logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
+  redirect to('..')
 end

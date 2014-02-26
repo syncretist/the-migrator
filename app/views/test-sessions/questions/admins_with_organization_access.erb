@@ -1,22 +1,25 @@
 <div class="individual_question">
   <h4 class="ruda700">Do all key admins have access to the OKM?</h4>
 
-  <% @test_session.get_latest_result_for_test_by_organization(1042, 'admins_with_organization_access').each do |key, value| %>
-    <span class="individual_answer <% if value['is_in_database?'] == 'yes' && value['can_log_in?'] == 'yes' %>question_success<% else %>question_fail<% end %>">
+  <%# unless @test_session.has_test_result? %>
+      <% @test_session.get_latest_result_for_test_by_organization(1042, 'admins_with_organization_access').each do |key, value| %>
+        <span class="individual_answer <% if value['is_in_database?'] == 'yes' && value['can_log_in?'] == 'yes' %>question_success<% else %>question_fail<% end %>">
 
-      <%= value['admin_email'] %>
+          <%= value['admin_email'] %>
 
-      <% if value['is_in_database?'] == 'yes' %>
-        is in the database
-      <% else %>
-        is not in the database
-      <% end %> and 
+          <% if value['is_in_database?'] == 'yes' %>
+            is in the database
+          <% else %>
+            is not in the database
+          <% end %> and
 
-      <% if value['can_log_in?'] == 'yes' %>
-        can log in.
-      <% else %>
-        cannog log in.
-      <% end %><br>
-    </span>
-  <% end %>
+          <% if value['can_log_in?'] == 'yes' %>
+            can log in.
+          <% else %>
+            cannog log in.
+          <% end %><br>
+        </span>
+      <% end %>
+    <%# end %>
 </div>
+<%= erb :'views/test-sessions/manual_trigger'%>
