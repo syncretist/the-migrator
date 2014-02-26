@@ -15,6 +15,7 @@ test_session_layout  = :'views/test-sessions/test_session_layout'
 
 get '/' do
   @test_sessions = TestSession.all
+  binding.pry
   # redirect to TestSession.all(:fields => [:id]).last[:id]
   erb :'views/test-sessions/test_sessions', :layout => test_session_layout
 end

@@ -13,7 +13,7 @@ class TestSession
     self.organizations_scheduled.split(' ')
   end
 
-  def latest_test_results_per_organization(organization_id)
+  def get_latest_test_results_per_organization(organization_id)
     categories = []
     latest_results = []
 
@@ -34,6 +34,15 @@ class TestSession
     end
 
     return latest_results
+  end
+
+  def get_latest_result_for_test_by_organization(organization_id, test_name)
+    results = get_latest_test_results_per_organization(organization_id)
+
+    results.select { |h| h.has_value? test_name }[0][:test_results]
+
+    # example, TestSession.new.get_latest_test_result_for_test(1042, 'organization_key_counts')
+    # returns a hash of the results
   end
 
 
