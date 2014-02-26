@@ -37,12 +37,30 @@ class TestSession
   end
 
   def get_latest_result_for_test_by_organization(organization_id, test_name)
+
     results = get_latest_test_results_per_organization(organization_id)
 
-    results.select { |h| h.has_value? test_name }[0][:test_results]
+    if results.empty? # the organization has no test results stored yet
+      return [:no_results]
+    else
+      if results.select { |h| h.has_value? test_name }[0].nil? # the organization has test results but not for this test
+        return [:no_results]
+      else
+        return results.select { |h| h.has_value? test_name }[0][:test_results]
+      end
+
+    end
 
     # example, TestSession.new.get_latest_test_result_for_test(1042, 'organization_key_counts')
     # returns a hash of the results
+  end
+
+  def organization_has_test_results?(organization_id, test_name)
+    if get_latest_result_for_test_by_organization(organization_id, test_name)[0] == :no_results
+      return false
+    else
+      return true
+    end
   end
 
 
