@@ -1,4 +1,4 @@
-<div class="individual_question" id="<%= @current_organization %>_admins_with_organization_access">
+<div class="individual_question" id="<%= @current_organization %>_<%= test_name %>">
   <h4 class="ruda700">Do all key admins have access to the OKM?</h4>
 
   <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
