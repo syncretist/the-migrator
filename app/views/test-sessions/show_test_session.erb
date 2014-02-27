@@ -60,7 +60,7 @@
         <% completion_count = @test_session.get_test_completion_count_by_organization(organization_id) %>
         <div class="results" id="result_<%= @current_organization %>">
           <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> <%= current_org_name %></h2>
-          <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: <%=completion_count[:number_of_tests_passed] %>/<%= completion_count[:number_of_tests] %></h3>
+          <h3 class="ruda700 l_no_top_margin">Verification Phases Passed: <%=completion_count[:number_of_tests_passed] %>/<%= completion_count[:number_of_tests] %></h3>
           <ul class="test_progress">
             <li><a class="task_list" data-question_w_org="<%= organization_id %>_organization_information">Organization Information
             <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'organization_information' } %></a></li>
