@@ -25,16 +25,16 @@
 
 <%#= erb :'views/test-sessions/temp_dump' %>
 
-<div class="container l_semiwhite ruda400">
+<div class="container l_semiwhite ruda400 l_20_bottom_margin">
   <div class="row">
     <div class="col-md-12 l_20_bottom_margin">
       <h1 class="ruda900 l_no_bottom_margin">Test Session for <%= @test_session.session_date %></h1>
-      <em>Verification Last Updated:</em> <%= Time.now.strftime('%l:%M:%S') %>
+      <em>Verification Last Updated: <%= Time.now.strftime('%l:%M:%S %p') %> EST</em>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2 l_20_bottom_margin">
       <ul class="l_ul">
         <% @test_session.scheduled_organization_list.each do |organization_id| %>
             <li><a href="#" class="menu_item" id="menu_<%= organization_id %>" data-result="<%= organization_id %>">ORG ID: <%= organization_id %></a></li>
