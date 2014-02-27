@@ -61,7 +61,8 @@
           <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> <%= current_org_name %></h2>
           <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: 13/15</h3>
           <ul class="test_progress">
-            <li>Test 1 (Passed / Failed)</li>
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_organization_information">Organization Information
+            <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'organization_information' } %></a></li>
             <li>Test 2 (Passed / Failed)</li>
             <li>Test 3 (Passed / Failed)</li>
             <li>Test 4 (Passed / Failed)</li>
