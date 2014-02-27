@@ -1,0 +1,69 @@
+<div class="individual_question" id="<%= @current_organization %>_<%= test_name %>">
+  <h4 class="ruda700"><%= test_name_full %></h4>
+  <!-- Start of answer -->
+  <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
+      <% @test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
+        <span class="individual_answer">
+
+          <% if key == 'scidea_courses' %>
+            <% value.each do |course_results| %>
+              <p><%= course_results['course_id'] %>
+              <%= course_results['key_counts']['total_keys'] %>
+              <%= course_results['key_counts']['used_keys'] %>
+              <%= course_results['key_counts']['available_keys'] %>
+              <%= course_results['key_counts']['assigned_keys'] %>
+              <%= course_results['key_counts']['in_progress'] %>
+              <%= course_results['key_counts']['completed'] %>
+              <%= course_results['key_counts']['failed'] %>
+              <%= course_results['key_counts']['archived'] %></p>
+            <% end %>
+          <% end %>
+
+          <% if key == 'legacy_courses' %>
+            <% value.each do |course_results| %>
+              <p><%= course_results['course_id'] %>
+                <%= course_results['key_counts']['total_keys'] %>
+                <%= course_results['key_counts']['used_keys'] %>
+                <%= course_results['key_counts']['available_keys'] %>
+                <%= course_results['key_counts']['assigned_keys'] %>
+                <%= course_results['key_counts']['in_progress'] %>
+                <%= course_results['key_counts']['completed'] %>
+                <%= course_results['key_counts']['failed'] %>
+                <%= course_results['key_counts']['archived'] %></p>
+            <% end %>
+          <% end %>
+
+          <% if key == 'number_of_courses_scidea' %>
+            <p><%= value %></p>
+          <% end %>
+
+          <% if key == 'number_of_courses_legacy' %>
+            <p><%= value %></p>
+          <% end %>
+
+          <% if key == 'discrepancy_between_numbers_of_courses' %>
+            <p><%= value %></p>
+          <% end %>
+
+          <% if key == 'course_key_count_comparisons' %>
+            <p><%= value.to_s %></p>  <%#TODO break this out with loop and hash key variables%>
+          <% end %>
+
+
+
+
+
+
+        <br>
+        </span>
+      <% end %>
+    <!-- End of answer -->
+  <% else %>
+  
+  <!-- Start of copy for no results generatred yet -->
+    <span class="individual_answer">Automated results have not yet been posted for this test.</span><br>
+  <!-- End of copy for no results generatred yet -->
+ 
+  <% end %>
+  <%= erb :'views/test-sessions/manual_trigger', :locals => { :test_name => test_name } %>
+</div>

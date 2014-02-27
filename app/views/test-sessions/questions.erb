@@ -6,8 +6,7 @@
     <em>Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</em><br>
     Status<br><br>
 
-    <em>Are the Global Key counts OK?</em><br>
-    Status<br><br>
+    <%= erb :'views/test-sessions/questions/organization_key_counts', :locals => { :test_name => 'organization_key_counts', :test_name_full => 'Are the Global Key counts OK?' } %>
 
     <em>Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?</em><br>
     Status<br><br>
