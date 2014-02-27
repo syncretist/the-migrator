@@ -20,7 +20,7 @@
           <% end %><br>
         </span>
       <% end %>
-  <%= erb :'views/test-sessions/manual_trigger'%>
+      <%= erb :'views/test-sessions/manual_trigger', :locals => { :test_name => test_name } %>
 
   <% else %>
   
@@ -29,4 +29,3 @@
   <% end %>
 
 </div>
-<%= erb :'views/test-sessions/manual_trigger', :locals => { :test_name => test_name } %>
