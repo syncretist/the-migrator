@@ -114,6 +114,11 @@ hr {
 list-style-type:square;
 }
 
+a.task_list:link {color:green;}
+a.task_list:visited {color:#fff;}
+a.task_list:hover {color:#fff; text-decoration: none;}
+a.task_list:active {color:#fff; text-decoration: none;}
+
 /* Fonts */
 .ruda400 {
   font-family: 'Ruda', sans-serif;
