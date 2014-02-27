@@ -36,6 +36,17 @@ class TestSession
     return latest_results
   end
 
+  def get_test_completion_count_by_organization(organization_id)
+    results = get_latest_test_results_per_organization(organization_id)
+
+    number_of_tests = 15
+    #number_of_tests_with_information = results.size
+    number_of_tests_passed = results.select { |e| e[:test_results].has_value?("pass") }.size
+
+    return { :number_of_tests => number_of_tests, :number_of_tests_passed => number_of_tests_passed }
+
+  end
+
   def get_latest_result_for_test_by_organization(organization_id, test_name)
 
     results = get_latest_test_results_per_organization(organization_id)

@@ -57,9 +57,10 @@
         <% @current_organization = organization_id%>
         <% current_org_info = @test_session.get_latest_result_for_test_by_organization(@current_organization, 'organization_information') %>
         <% current_org_name = current_org_info == [:no_results] ? '' : current_org_info['organization_name'] %>
+        <% completion_count = @test_session.get_test_completion_count_by_organization(organization_id) %>
         <div class="results" id="result_<%= @current_organization %>">
           <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> <%= current_org_name %></h2>
-          <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: 13/15</h3>
+          <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: <%=completion_count[:number_of_tests_passed] %>/<%= completion_count[:number_of_tests] %></h3>
           <ul class="test_progress">
             <li>Test 1 (Passed / Failed)</li>
             <li>Test 2 (Passed / Failed)</li>
