@@ -23,6 +23,8 @@ gem 'localtunnel'
 # deployment and app managment
 gem 'foreman' # https://www.digitalocean.com/community/articles/how-to-set-up-zero-downtime-rails-deploys-using-puma-and-foreman
 gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rvm' # https://github.com/capistrano/rvm
 
 # debuggins
 gem 'pry-debugger'

@@ -1,0 +1,12 @@
+<% status = @test_session.get_latest_status_for_test_by_organization(organization_id, test_name) %>
+<% if status == 'pass' # test is complete %>
+  <%= 'PASS' %>
+<% elsif status == 'fail' # test has problems %>
+  <%= 'FAIL' %>
+<% elsif status == 'uncollected' # no outcome %>
+  <%= 'NOT YET COLLECTED' %>
+<% elsif status == 'undetermined' # test results not set yet %>
+  <%= 'NOT DETERMINED YET' %>
+<% else %>
+  <%= '' %>
+<% end %>

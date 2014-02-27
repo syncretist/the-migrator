@@ -55,6 +55,24 @@ class TestSession
     # returns a hash of the results
   end
 
+  def get_latest_status_for_test_by_organization(organization_id, test_name)
+    test_result = get_latest_result_for_test_by_organization(organization_id, test_name)
+
+    if test_result == [:no_results]
+      return 'uncollected'
+    else
+      if test_result.has_key? 'outcome'
+        return test_result['outcome']
+      else
+        return 'undetermined'
+      end
+    end
+
+
+    # final result will be UNCOLLECTED (test not yet run), PASS , FAIL or UNDETERMINED
+
+  end
+
   def organization_has_test_results?(organization_id, test_name)
     if get_latest_result_for_test_by_organization(organization_id, test_name)[0] == :no_results
       return false
