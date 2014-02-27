@@ -3,6 +3,7 @@ lock '3.1.0'
 
 set :application, 'the-migrator'
 set :repo_url, 'git@github.com:syncretist/the-migrator.git'
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
