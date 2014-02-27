@@ -1,5 +1,9 @@
 <div class="questions">
-    <h4 class="ruda700">Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</h4>
+    <h4 class="ruda700"></h4>
+
+  <%= erb :'views/test-sessions/questions/organization_information', :locals => { :test_name => 'organization_information', :test_name_full => 'Organization Information' } %>
+
+    <em>Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</em><br>
     Status<br><br>
 
     <em>Are the Global Key counts OK?</em><br>
@@ -12,7 +16,7 @@
     <em>Key sample investigation</em><br>
     Status<br><br>
 
-    <%= erb :'views/test-sessions/questions/admins_with_organization_access', :locals => { :test_name => 'admins_with_organization_access' } %>
+    <%= erb :'views/test-sessions/questions/admins_with_organization_access', :locals => { :test_name => 'admins_with_organization_access', :test_name_full => 'Do all key admins have access to the OKM?' } %>
 
     <em>Is the subdomain correct?</em><br>
     Status<br><br>

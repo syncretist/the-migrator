@@ -55,8 +55,9 @@
 
       <% @test_session.scheduled_organization_list.each do |organization_id| %>
         <% @current_organization = organization_id%>
+        <% current_org_info = @test_session.get_latest_result_for_test_by_organization(@current_organization, 'organization_information') %>
         <div class="results" id="result_<%= @current_organization %>">
-          <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> (ORG Name)</h2>
+          <h2 class="ruda900 l_no_top_margin">ORG #<%= @current_organization %> <%= current_org_info['organization_name'] %></h2>
           <h3 class="ruda700 l_no_top_margin">Automatated Verification Phases Passed: 13/15</h3>
           <ul class="test_progress">
             <li>Test 1 (Passed / Failed)</li>
