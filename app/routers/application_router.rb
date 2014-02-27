@@ -34,3 +34,21 @@ post '/utilities/test_results' do
   logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
   redirect to('..')
 end
+
+post '/utilities/test_results/pass' do
+  test_results = {}
+  test_results[:outcome_reason] = params[:outcome_reason]
+  test_results[:outcome] = :pass
+  TestResult.create({"organization_id" => params[:organization_id], "test_name" => params[:test_name], "test_results" => test_results.to_json })
+  logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
+  redirect to('..')
+end
+
+post '/utilities/test_results/fail' do
+  test_results = {}
+  test_results[:outcome_reason] = params[:outcome_reason]
+  test_results[:outcome] = :fail
+  TestResult.create({"organization_id" => params[:organization_id], "test_name" => params[:test_name], "test_results" => test_results.to_json })
+  logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
+  redirect to('..')
+end

@@ -1,16 +1,21 @@
 <div class="btn-group l_10_top_margin">
   <p><%= erb :'views/test-sessions/test_status', :locals => { :organization_id => @current_organization, :test_name => test_name } %></p>
-  <form action="/utilities/test_results" method="POST" style="display: inline;">
+  <form action="/utilities/test_results/pass" method="POST" style="display: inline;">
     <input id='manual-pass-organization-id' type='hidden' name='organization_id' value='<%= @current_organization %>'>
     <input id='manual-pass-test-name' type='hidden' name='test_name' value='<%= test_name %>'>
-    <input id='manual-pass-test-results' type='hidden' name='test_results' value='<%= { :outcome => :pass }.to_json %>'>
     <input type="submit" value="Pass" class="btn btn-xs btn-success">
+    <br>
+    <br>
+    <textarea id='outcome_reason' name='outcome_reason'><%= @test_session.get_latest_reason_for_test_status_by_organization(@current_organization, test_name) %></textarea>
+    <br><br>
   </form>
-  <form action="/utilities/test_results" method="POST" style="display: inline;">
+  <form action="/utilities/test_results/fail" method="POST" style="display: inline;">
     <input id='manual-fail-organization-id' type='hidden' name='organization_id' value='<%= @current_organization %>'>
     <input id='manual-fail-test-name' type='hidden' name='test_name' value='<%= test_name %>'>
-    <input id='manual-fail-test-results' type='hidden' name='test_results' value='<%= { :outcome => :fail }.to_json %>'>
     <input type="submit" value="Fail" class="btn btn-xs btn-danger">
+    <br>
+    <br>
+    <textarea id='outcome_reason' name='outcome_reason'><%= @test_session.get_latest_reason_for_test_status_by_organization(@current_organization, test_name) %></textarea>
   </form>
 </div>
 <br/>

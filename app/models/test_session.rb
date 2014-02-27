@@ -55,6 +55,20 @@ class TestSession
     # returns a hash of the results
   end
 
+  def get_latest_reason_for_test_status_by_organization(organization_id, test_name)
+    test_result = get_latest_result_for_test_by_organization(organization_id, test_name)
+
+    if test_result == [:no_results]
+      return ''
+    else
+      if test_result.has_key? 'outcome_reason'
+        return test_result['outcome_reason']
+      else
+        return ''
+      end
+    end
+  end
+
   def get_latest_status_for_test_by_organization(organization_id, test_name)
     test_result = get_latest_result_for_test_by_organization(organization_id, test_name)
 
