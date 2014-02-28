@@ -64,21 +64,54 @@
           <ul class="test_progress">
             <li><a class="task_list" data-question_w_org="<%= organization_id %>_organization_information">Organization Information
             <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'organization_information' } %></a></li>
-            <li>Test 2 (Passed / Failed)</li>
-            <li>Test 3 (Passed / Failed)</li>
-            <li>Test 4 (Passed / Failed)</li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_key_report_results">Does the "keys report" have all Legacy/Scidea Diff checks set to OK?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'key_report_results' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_organization_key_counts">Are the Global Key counts OK?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'organization_key_counts' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_sco_report_results">Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'sco_report_results' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_sco_sample_investigation">Key sample investigation
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'sco_sample_investigation' } %></a></li>
+
             <li><a class="task_list" data-question_w_org="<%= organization_id %>_admins_with_organization_access">Do all key admins have access to the OKM?
             <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'admins_with_organization_access' } %></a></li>
-            <li>Test 6 (Passed / Failed)</li>
-            <li>Test 7 (Passed / Failed)</li>
-            <li>Test 8 (Passed / Failed)</li>
-            <li>Test 9 (Passed / Failed)</li>
-            <li>Test 10 (Passed / Failed)</li>
-            <li>Test 11 (Passed / Failed)</li>
-            <li>Test 12 (Passed / Failed)</li>
-            <li>Test 13 (Passed / Failed)</li>
-            <li>Test 14 (Passed / Failed)</li>
-            <li>Test 15 (Passed / Failed)</li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_subdomain">Is the subdomain correct?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'subdomain' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_admin_profile_information">AS ADMIN: Is the information in my profile accurate?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'admin_profile_information' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_main_links_500">Can I click on all the main links without having a 500 error?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'main_links_500' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_key_state_500">Can I navigate through all the keys states without having a 500 error?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'key_state_500' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_global_search">Does global search function properly?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'global_search' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_key_state_script">Has the key state script been properly run? Check in global search to make sure key states match.
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'key_state_script' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_groups">Do groups seem consistent?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'groups' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_user_profiles">Do all users have profiles?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'user_profiles' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_user_course_records">Do all users have course records?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'user_course_records' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_inactive_keys">Are there any 'inactive' key states?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'inactive_keys' } %></a></li>
+
+            <li><a class="task_list" data-question_w_org="<%= organization_id %>_external_course_continuation">Can users in progress at external courses continue where they left off externally?
+              <%= erb :'views/test-sessions/test_status', :locals => { :organization_id => organization_id, :test_name => 'external_course_continuation' } %></a></li>
           </ul>
           <%= erb :'views/test-sessions/questions' %>
 

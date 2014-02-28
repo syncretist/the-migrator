@@ -3,50 +3,36 @@
 
   <%= erb :'views/test-sessions/questions/organization_information', :locals => { :test_name => 'organization_information', :test_name_full => 'Organization Information' } %>
 
-    <em>Does the "keys report" have all Legacy/Scidea Diff checks set to OK?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/key_report_results', :locals => { :test_name => 'key_report_results', :test_name_full => 'Does the "keys report" have all Legacy/Scidea Diff checks set to OK?' } %>
 
-    <%= erb :'views/test-sessions/questions/organization_key_counts', :locals => { :test_name => 'organization_key_counts', :test_name_full => 'Are the Global Key counts OK?' } %>
+  <%= erb :'views/test-sessions/questions/organization_key_counts', :locals => { :test_name => 'organization_key_counts', :test_name_full => 'Are the Global Key counts OK?' } %>
 
-    <em>Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/sco_report_results', :locals => { :test_name => 'sco_report_results', :test_name_full => 'Does the "sco records report" have all Legacy/Scidea Diff checks set to OK?' } %>
 
+  <%= erb :'views/test-sessions/questions/sco_sample_investigation', :locals => { :test_name => 'sco_sample_investigation', :test_name_full => 'Key sample investigation' } %>
 
-    <em>Key sample investigation</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/admins_with_organization_access', :locals => { :test_name => 'admins_with_organization_access', :test_name_full => 'Do all key admins have access to the OKM?' } %>
 
-    <%= erb :'views/test-sessions/questions/admins_with_organization_access', :locals => { :test_name => 'admins_with_organization_access', :test_name_full => 'Do all key admins have access to the OKM?' } %>
+  <%= erb :'views/test-sessions/questions/subdomain', :locals => { :test_name => 'subdomain', :test_name_full => 'Is the subdomain correct?' } %>
 
-    <em>Is the subdomain correct?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/admin_profile_information', :locals => { :test_name => 'admin_profile_information', :test_name_full => 'AS ADMIN: Is the information in my profile accurate?' } %>
 
-    <em>AS ADMIN: Is the information in my profile accurate?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/main_links_500', :locals => { :test_name => 'main_links_500', :test_name_full => 'Can I click on all the main links without having a 500 error?' } %>
 
-    <em>Can I click on all the main links without having a 500 error?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/key_state_500', :locals => { :test_name => 'key_state_500', :test_name_full => 'Can I navigate through all the keys states without having a 500 error?' } %>
 
-    <em>Can I navigate through all the keys states without having a 500 error?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/global_search', :locals => { :test_name => 'global_search', :test_name_full => 'Does global search function properly?' } %>
 
-    <em>Does global search function properly?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/key_state_script', :locals => { :test_name => 'key_state_script', :test_name_full => 'Has the key state script been properly run? Check in global search to make sure key states match.' } %>
 
-    <em>Has the key state script been properly run? Check in global search to make sure key states match.</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/groups', :locals => { :test_name => 'groups', :test_name_full => 'Do groups seem consistent?' } %>
 
-    <em>Do groups seem consistent?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/user_profiles', :locals => { :test_name => 'user_profiles', :test_name_full => 'Do all users have profiles?' } %>
 
-    <em>Do all users have profiles?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/user_course_records', :locals => { :test_name => 'user_course_records', :test_name_full => 'Do all users have course records?' } %>
 
-    <em>Do all users have course records?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/inactive_keys', :locals => { :test_name => 'inactive_keys', :test_name_full => 'Are there any inactive key states?' } %>
 
-    <em>Are there any 'inactive' key states?</em><br>
-    Status<br><br>
+  <%= erb :'views/test-sessions/questions/external_course_continuation', :locals => { :test_name => 'external_course_continuation', :test_name_full => 'Can users in progress at external courses continue where they left off externally?' } %>
 
-    <em>Can users in progress at external courses continue where they left off externally?</em><br>
-    Status<br><br>
 </div>

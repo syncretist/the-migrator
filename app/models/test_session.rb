@@ -39,7 +39,7 @@ class TestSession
   def get_test_completion_count_by_organization(organization_id)
     results = get_latest_test_results_per_organization(organization_id)
 
-    number_of_tests = 15
+    number_of_tests = 17
     #number_of_tests_with_information = results.size
     number_of_tests_passed = results.select { |e| e[:test_results].has_value?("pass") }.size
 

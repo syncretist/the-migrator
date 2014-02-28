@@ -56,7 +56,7 @@ namespace :deploy do
 
       # eventually switch to: http://railscoder.com/foreman-and-capistrano-setup-on-ubuntu/
        execute "kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})"
-       within "/var/www/utils/the-migrator/currentco" do
+       within "/var/www/utils/the-migrator/current" do
          execute :foreman, 'start'
        end
        #execute "cd #{deploy_to}/current && bundle exec foreman start"
