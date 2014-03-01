@@ -58,6 +58,30 @@ configure :example do
   set :views          , 'doc/example-app'
 end
 
+## Logging
+##
+## http://stackoverflow.com/questions/1633431/having-trouble-debugging-sinatra-app-in-production
+
+set :raise_errors => true
+set :logging, true
+
+binding.pry
+
+log = File.new("log/sinatra.log", "a+")
+STDOUT.reopen(log)
+STDERR.reopen(log)
+
+require 'logger'
+configure do
+  LOGGER = Logger.new("log/sinatra.log")
+end
+
+helpers do
+  def logger
+    LOGGER
+  end
+end
+
 ## Custom Settings
 ##
 ##   * It’s also possible to create your own custom settings in Sinatra. These can be used
