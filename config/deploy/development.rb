@@ -55,19 +55,21 @@ namespace :deploy do
       # execute :touch, release_path.join('tmp/restart.txt')
 
       execute "cp #{deploy_to}/shared/database.rb #{deploy_to}/current/config/"
+      execute "cp #{deploy_to}/db-backups/development.db #{deploy_to}/current/"
 
       # eventually switch to: http://railscoder.com/foreman-and-capistrano-setup-on-ubuntu/
-      execute "kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})"
-       within "/var/www/utils/the-migrator/current" do
-         execute :foreman, 'start'
-       end
-       #execute "cd #{deploy_to}/current && bundle exec foreman start"
+      # execute "kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})"
+      #  within "/var/www/utils/the-migrator/current" do
+      #    execute :foreman, 'start'
+      #  end
+      # execute "cd #{deploy_to}/current && bundle exec foreman start"
     end
   end
 
   after :publishing, :restart
+  after :restart, :cleanup
 
-  after :restart, :clear_cache do
+  after :cleanup, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do

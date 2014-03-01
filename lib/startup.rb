@@ -28,6 +28,16 @@ puts "----------------"
 
 ## Paths
 
+configure :production do
+  root_path = Dir['./app']
+
+  set :root, root_path
+  puts "  * This sinatra applications project root is #{root_path}."
+
+  set :public_folder  , 'app/public'
+  set :views          , 'app'
+end
+
 configure :development do
   root_path = Dir['./app']
 
