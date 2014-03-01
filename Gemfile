@@ -12,7 +12,9 @@ gem 'sass'
 
 # database and orm
 gem 'sqlite3'
+gem 'mysql2'
 gem 'dm-sqlite-adapter'
+gem 'dm-mysql-adapter'
 gem 'data_mapper'
 gem 'dm-types' # for json and yaml
 

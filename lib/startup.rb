@@ -127,7 +127,8 @@ configure :production do
   # ENV is a hash-like accessor for environment variables.
   # http://ruby-doc.org/core-1.9.3/ENV.html
 
-  DataMapper.setup(:default, ENV['DATABASE_URL']) if ENV['DATABASE_URL']
+  #DataMapper.setup(:default, ENV['DATABASE_URL']) if ENV['DATABASE_URL']
+  DataMapper.setup(:default, "mysql://#{THE_MIGRATOR_PRODUCTION_DATABASE[:username]}:#{THE_MIGRATOR_PRODUCTION_DATABASE[:password]}@#{THE_MIGRATOR_PRODUCTION_DATABASE[:host]}/#{THE_MIGRATOR_PRODUCTION_DATABASE[:database]}")
   DataMapper.finalize # required after all classes using DataMapper to check their integrity. It needs to be called before the app starts interacting with any classes.
 end
 

@@ -12,6 +12,16 @@ module Configuration
     require 'dm-timestamps' # http://datamapper.org/docs/dm_more/timestamps.html
     require 'dm-types' # http://datamapper.org/docs/dm_more/types.html
     require 'json'
+
+    @database_configuration_file = "./config/database.rb"
+
+    if File.exist? @database_configuration_file
+      require @database_configuration_file
+    else
+      puts "NOTE:".yellow + " To properly run this suite:"
+      puts " * You must have the proper database configuration file @ ./config/database.rb"
+      puts ""
+    end
   end
   module RenderingEngines
     require 'slim'

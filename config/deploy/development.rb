@@ -54,8 +54,10 @@ namespace :deploy do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
 
+      execute "cp #{deploy_to}/shared/database.rb #{deploy_to}/current/config/"
+
       # eventually switch to: http://railscoder.com/foreman-and-capistrano-setup-on-ubuntu/
-       execute "kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})"
+      execute "kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})"
        within "/var/www/utils/the-migrator/current" do
          execute :foreman, 'start'
        end
