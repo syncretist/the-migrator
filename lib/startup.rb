@@ -65,8 +65,6 @@ end
 set :raise_errors => true
 set :logging, true
 
-binding.pry
-
 log = File.new("log/sinatra.log", "a+")
 STDOUT.reopen(log)
 STDERR.reopen(log)
