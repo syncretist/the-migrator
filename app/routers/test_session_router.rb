@@ -30,12 +30,12 @@ post '/' do
 end
 
 get '/new' do
-  @test_session = TestSession.new
+  @current_test_session = TestSession.new
   erb :'views/test-sessions/new_test_session', :layout => test_session_layout
 end
 
 get '/:id' do
-  @test_session = TestSession.get(params[:id])
+  @current_test_session = TestSession.get(params[:id])
   @test_sessions = TestSession.all
   erb :'views/test-sessions/show_test_session', :layout => test_session_layout
 end
@@ -54,6 +54,6 @@ delete '/:id' do
 end
 
 get '/:id/edit' do
-  @test_session = TestSession.get(params[:id])
+  @current_test_session = TestSession.get(params[:id])
   erb :'/views/test-sessions/edit_test_session', :layout => test_session_layout
 end

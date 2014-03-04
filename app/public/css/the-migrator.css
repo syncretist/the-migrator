@@ -96,7 +96,13 @@ hr {
 }
 
 .individual_answer {
+  display: inline-block;
   font-size: 12px;
+  background: white;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  width:400px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .fader {

@@ -1,27 +1,28 @@
 <div class="individual_question" id="<%= @current_organization %>_<%= test_name %>">
   <h4 class="ruda700"><%= test_name_full %></h4>
   <!-- Start of answer -->
-  <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
-      <% @test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
-        <span class="individual_answer">
+  <% if @current_test_session.organization_has_test_results?(@current_organization, test_name) %>
+      <% @current_test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
+        <span>
 
+        <p class="individual_answer">
           <% if key == 'scidea_courses' %>
             <% value.each do |course_results| %>
-              <p><%= course_results['course_id'] %>
-              <%= course_results['key_counts']['total_keys'] %>
-              <%= course_results['key_counts']['used_keys'] %>
-              <%= course_results['key_counts']['available_keys'] %>
-              <%= course_results['key_counts']['assigned_keys'] %>
-              <%= course_results['key_counts']['in_progress'] %>
-              <%= course_results['key_counts']['completed'] %>
-              <%= course_results['key_counts']['failed'] %>
-              <%= course_results['key_counts']['archived'] %></p>
+              Course ID: <%= course_results['course_id'] %><br>
+              Total Keys: <%= course_results['key_counts']['total_keys'] %><br>
+              Used Keys: <%= course_results['key_counts']['used_keys'] %><br>
+              Available Keys: <%= course_results['key_counts']['available_keys'] %><br>
+              Assigned Keys: <%= course_results['key_counts']['assigned_keys'] %><br>
+              In Progress: <%= course_results['key_counts']['in_progress'] %><br>
+              Completed: <%= course_results['key_counts']['completed'] %><br>
+              Failed: <%= course_results['key_counts']['failed'] %><br>
+              Archived: <%= course_results['key_counts']['archived'] %><br>
             <% end %>
           <% end %>
 
           <% if key == 'legacy_courses' %>
             <% value.each do |course_results| %>
-              <p><%= course_results['course_id'] %>
+                <%= course_results['course_id'] %>
                 <%= course_results['key_counts']['total_keys'] %>
                 <%= course_results['key_counts']['used_keys'] %>
                 <%= course_results['key_counts']['available_keys'] %>
@@ -29,30 +30,26 @@
                 <%= course_results['key_counts']['in_progress'] %>
                 <%= course_results['key_counts']['completed'] %>
                 <%= course_results['key_counts']['failed'] %>
-                <%= course_results['key_counts']['archived'] %></p>
+                <%= course_results['key_counts']['archived'] %>
             <% end %>
           <% end %>
 
           <% if key == 'number_of_courses_scidea' %>
-            <p><%= value %></p>
+            <%= value %>
           <% end %>
 
           <% if key == 'number_of_courses_legacy' %>
-            <p><%= value %></p>
+            <%= value %>
           <% end %>
 
           <% if key == 'discrepancy_between_numbers_of_courses' %>
-            <p><%= value %></p>
+            <%= value %>
           <% end %>
 
           <% if key == 'course_key_count_comparisons' %>
-            <p><%= value.to_s %></p>  <%#TODO break this out with loop and hash key variables%>
+            <%= value.to_s %>  <%#TODO break this out with loop and hash key variables%>
           <% end %>
-
-
-
-
-
+          </p>
 
         <br>
         </span>

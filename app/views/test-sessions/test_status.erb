@@ -1,12 +1,12 @@
-<% status = @test_session.get_latest_status_for_test_by_organization(organization_id, test_name) %>
+<% status = @current_test_session.return_latest_status_for_test_by_organization(organization_id, test_name) %>
 <% if status == 'pass' # test is complete %>
-  <%= 'PASS' %>
+  <p class="btn btn-xs btn-success"><%= 'PASS' %></p>
 <% elsif status == 'fail' # test has problems %>
-  <%= 'FAIL' %>
+  <p class="btn btn-xs btn-danger"><%= 'FAIL' %></p>
 <% elsif status == 'uncollected' # no outcome %>
-  <%= 'NOT YET COLLECTED' %>
+    <p class="btn btn-xs btn-warning"><%= 'NOT YET COLLECTED' %></p>
 <% elsif status == 'undetermined' # test results not set yet %>
-  <%= 'NOT DETERMINED YET' %>
+    <p class="btn btn-xs btn-info"><%= 'NOT DETERMINED YET' %></p>
 <% else %>
   <%= '' %>
 <% end %>

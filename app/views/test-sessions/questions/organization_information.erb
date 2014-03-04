@@ -1,15 +1,14 @@
 <div class="individual_question" id="<%= @current_organization %>_<%= test_name %>">
   <h4 class="ruda700"><%= test_name_full %></h4>
   <!-- Start of answer -->
-  <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
-      <% org_info = @test_session.get_latest_result_for_test_by_organization(@current_organization, test_name) %>
-        <span class="individual_answer">
-          <%= org_info['organization_id'] %>
-          <%= org_info['organization_name'] %>
-          <%= org_info['primary_admin_email'] %>
-          <%= org_info['total_key_count'] %>
-          <%= org_info['subdomain'] %>
-        </br>
+  <% if @current_test_session.organization_has_test_results?(@current_organization, test_name) %>
+      <% org_info = @current_test_session.get_latest_result_for_test_by_organization(@current_organization, test_name) %>
+        <span>
+           <p class="individual_answer">ORG ID: <%= org_info['organization_id'] %><br>
+           ORG Name: <%= org_info['organization_name'] %><br>
+           Primary Admin:<%= org_info['primary_admin_email'] %><br>
+           Total Keys: <%= org_info['total_key_count'] %><br>
+           Subdomain: <%= org_info['subdomain'] %><br></p>
         </span>
   <!-- End of answer -->
   <% else %>

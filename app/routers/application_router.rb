@@ -24,8 +24,9 @@ utility_layout  = :'views/utility/utility_layout'
 ############
 
 get '/utilities/test_results' do
-  @test_results = TestResult.all
+  @test_results  = TestResult.all
   @test_sessions = TestSession.all
+  @test_statuses = TestStatus.all
   erb :'views/utility/test_results', :layout => utility_layout
 end
 
@@ -35,20 +36,18 @@ post '/utilities/test_results' do
   redirect to('..')
 end
 
-post '/utilities/test_results/pass' do
-  test_results = {}
-  test_results[:outcome_reason] = params[:outcome_reason]
-  test_results[:outcome] = :pass
-  TestResult.create({"organization_id" => params[:organization_id], "test_name" => params[:test_name], "test_results" => test_results.to_json })
-  logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
-  redirect to('..')
-end
+post '/utilities/test_status' do
 
-post '/utilities/test_results/fail' do
-  test_results = {}
-  test_results[:outcome_reason] = params[:outcome_reason]
-  test_results[:outcome] = :fail
-  TestResult.create({"organization_id" => params[:organization_id], "test_name" => params[:test_name], "test_results" => test_results.to_json })
+  if params.has_key? "Fail"
+    test_status = 'fail';
+  elsif params.has_key? "Pass"
+    test_status = 'pass'
+  end
+
+  TestStatus.create({"organization_id" => params[:organization_id],
+                     "test_name" => params[:test_name],
+                     "outcome_reason" => { :outcome_reason => params[:outcome_reason] }.to_json,
+                     "test_status" => { :test_status => test_status }.to_json })
   logger.info "POST RECEIVED VIA /utilities/test_results: #{params}"
   redirect to('..')
 end

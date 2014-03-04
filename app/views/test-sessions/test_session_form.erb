@@ -1,5 +1,5 @@
 <label for='organizations_scheduled'>Organizations scheduled(enter ids, seperate by spaces):</label>
-<input id='organizations-scheduled' type='text' name='test_session[organizations_scheduled]' value='<%= @test_session.organizations_scheduled %>'>
+<input id='organizations-scheduled' type='text' name='test_session[organizations_scheduled]' value='<%= @current_test_session.organizations_scheduled if @current_test_session.organizations_scheduled %>'>
 <label for='session_date'>Date of session(mm/dd/yyy):</label>
-<input id='session-date' type='text' name='test_session[session_date]' value='<%= @test_session.session_date.strftime("%m/%d/%Y") if @test_session.session_date %>'>
+<input id='session-date' type='text' name='test_session[session_date]' value='<%= @current_test_session.session_date.strftime("%m/%d/%Y") if @current_test_session.session_date %>'>
 <input id='new-test-session-submit' type='submit' value='Save Test Session'>

@@ -1,5 +1,5 @@
 <h1>Edit Test Session</h1>
-<form method='POST' action='/<%= @test_session.id %>'>
+<form method='POST' action='/<%= @current_test_session.id %>'>
   <input type='hidden' name='_method' value="PUT">
   <%= erb :'views/test-sessions/test_session_form' %>
 </form>

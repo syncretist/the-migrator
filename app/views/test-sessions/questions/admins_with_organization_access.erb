@@ -1,9 +1,9 @@
 <div class="individual_question" id="<%= @current_organization %>_<%= test_name %>">
   <h4 class="ruda700"><%= test_name_full %></h4>
 
-  <% if @test_session.organization_has_test_results?(@current_organization, test_name) %>
-      <% @test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
-        <span class="individual_answer <% if value['is_in_database?'] == 'yes' && value['can_log_in?'] == 'yes' %>question_success<% else %>question_fail<% end %>">
+  <% if @current_test_session.organization_has_test_results?(@current_organization, test_name) %>
+      <% @current_test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
+        <div class="individual_answer <% if value['is_in_database?'] == 'yes' && value['can_log_in?'] == 'yes' %>question_success<% else %>question_fail<% end %>">
 
           <%= value['admin_email'] %>
 
@@ -18,7 +18,7 @@
           <% else %>
             cannog log in.
           <% end %><br>
-        </span>
+        </div>
       <% end %>
   <% else %>
     <span class="individual_answer">Automated results have not yet been posted for this test.</span>
