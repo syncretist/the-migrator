@@ -62,7 +62,7 @@ end
 ##
 ## http://stackoverflow.com/questions/1633431/having-trouble-debugging-sinatra-app-in-production
 
-configure :development, :production do
+configure :production do
   set :raise_errors => true
   set :logging, true
 
