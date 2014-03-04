@@ -18,7 +18,7 @@ module Configuration
     if File.exist? @database_configuration_file
       require @database_configuration_file
     else
-      puts "NOTE:".yellow + " To properly run this suite:"
+      puts "NOTE:" + " To properly run this suite:"
       puts " * You must have the proper database configuration file @ ./config/database.rb"
       puts ""
     end
