@@ -1,13 +1,14 @@
 <div class="individual_question" id="<%= @current_organization %>_<%= test_name %>">
   <h4 class="ruda700"><%= test_name_full %></h4>
   <!-- Start of answer -->
-  <% if @current_test_session.organization_has_test_results?(@current_organization, test_name) %>
-      <% @current_test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
+  <% if @current_test_session.organization_has_test_results?(@current_organization, 'organization_information') %>
+      <% org_info = @current_test_session.get_latest_result_for_test_by_organization(@current_organization, 'organization_information') %>
         <div class="individual_answer">
+        The subdomain is: <b><%= org_info['subdomain'] %></b><br>
+        Please match against the <a href="https://docs.google.com/a/scitent.com/spreadsheet/ccc?key=0AkKHe0bnHOmsdHZ3bGs1cm5GVE9ZNnI2d3FsS1RWT0E&usp=drive_web#gid=18" target="_blank">AHA Migrated Propacks Control Center Document</a>
         </br>
         </div>
     <!-- End of answer -->
-      <% end %>
   <% else %>
   
   <!-- Start of copy for no results generatred yet -->

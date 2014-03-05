@@ -1,0 +1,64 @@
+.table-key-counts td, th {
+    width: 8rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.table-key-counts caption {
+    text-align: left;
+}
+
+.table-key-counts th {
+    background: lightblue;
+    border-color: white;
+}
+.table-key-counts body {
+    padding: 1rem;
+}
+
+.table-key-count-results table {
+    border-spacing: 0.5rem;
+}
+
+.table-key-count-results td {
+    padding: 0.5rem;
+}
+
+.table-key-count-results td {
+    width: 15rem;
+    height: 2rem;
+    padding: 0.5rem;
+}
+
+.table-key-count-results td:nth-child(1) { background: hsl(50, 60%, 50%); }
+.table-key-count-results td:nth-child(2) {
+    background: hsl(60, 70%, 50%);
+    width: 15rem;
+    height: 2rem;
+}
+
+.table-key-count-results td:nth-child(3) {
+    background: hsl(70, 80%, 50%);
+    width: 15rem;
+    height: 2rem;
+}
+
+.answer_box div {
+    display: inline-block;
+    font-size: 500px;
+    background: white;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    width:400px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.red-x {
+  color: red;
+  font-size:150%
+}
+
+.green-check {
+  color: green;
+  font-size:150%
+}

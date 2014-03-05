@@ -3,53 +3,108 @@
   <!-- Start of answer -->
   <% if @current_test_session.organization_has_test_results?(@current_organization, test_name) %>
       <% @current_test_session.get_latest_result_for_test_by_organization(@current_organization, test_name).each do |key, value| %>
-        <span>
-
+      <span>
+      <div class="answer_box">
         <p class="individual_answer">
-          <% if key == 'scidea_courses' %>
+          <% if key == 'course_key_count_comparisons' %>
+            Key count comparisons per course
             <% value.each do |course_results| %>
-              Course ID: <%= course_results['course_id'] %><br>
-              Total Keys: <%= course_results['key_counts']['total_keys'] %><br>
-              Used Keys: <%= course_results['key_counts']['used_keys'] %><br>
-              Available Keys: <%= course_results['key_counts']['available_keys'] %><br>
-              Assigned Keys: <%= course_results['key_counts']['assigned_keys'] %><br>
-              In Progress: <%= course_results['key_counts']['in_progress'] %><br>
-              Completed: <%= course_results['key_counts']['completed'] %><br>
-              Failed: <%= course_results['key_counts']['failed'] %><br>
-              Archived: <%= course_results['key_counts']['archived'] %><br>
+            <table class='table-key-count-results'>
+              <tr>
+                <th colspan="5">Course <%= course_results['course_id'] %><br>[<%= course_results['course_title']%>]</th>
+              </tr>
+                <% course_results['course_count_differences'].each do |category, result| %>
+                <tr>
+                  <td colspan="1">[<% if result[0] == 'equal' %>
+                         <span class='green-check'><%= '✔' %></span>
+                       <% else %>
+                         <span class='red-x'><%= '✘' %></span>
+                       <% end %>]</td>
+                  <td colspan="2">For <b><%= category.gsub(/_/, ' ') %></b>: </td>
+                  <td colspan="2"><%= result[1] %></td>
+                </tr>
+                <% end %>
+            </table><br>
             <% end %>
+          <% end %>
+
+          <% if key == 'scidea_courses' %>
+            <table class='table-key-counts'>
+              <caption>Scidea Courses</caption>
+              <tr>
+                <th>Course ID</th>
+                <th>Total Keys</th>
+                <th>Used Keys</th>
+                <th>Available Keys</th>
+                <th>Assigned Keys</th>
+                <th>In Progress</th>
+                <th>Completed</th>
+                <th>Failed</th>
+                <th>Archived</th>
+              </tr>
+            <% value.each do |course_results| %>
+              <tr>
+                <td><%= course_results['course_id'] %></td>
+                <td><%= course_results['key_counts']['total_keys'] %></td>
+                <td><%= course_results['key_counts']['used_keys'] %></td>
+                <td><%= course_results['key_counts']['available_keys'] %></td>
+                <td><%= course_results['key_counts']['assigned_keys'] %></td>
+                <td><%= course_results['key_counts']['in_progress'] %></td>
+                <td><%= course_results['key_counts']['completed'] %></td>
+                <td><%= course_results['key_counts']['failed'] %></td>
+                <td><%= course_results['key_counts']['archived'] %></td>
+              </tr>
+            <% end %>
+            </table>
           <% end %>
 
           <% if key == 'legacy_courses' %>
+            <table class='table-key-counts'>
+              <caption>Legacy Courses</caption>
+              <tr>
+                <th>Course ID</th>
+                <th>Total Keys</th>
+                <th>Used Keys</th>
+                <th>Available Keys</th>
+                <th>Assigned Keys</th>
+                <th>In Progress</th>
+                <th>Completed</th>
+                <th>Failed</th>
+                <th>Archived</th>
+              </tr>
             <% value.each do |course_results| %>
-                <%= course_results['course_id'] %>
-                <%= course_results['key_counts']['total_keys'] %>
-                <%= course_results['key_counts']['used_keys'] %>
-                <%= course_results['key_counts']['available_keys'] %>
-                <%= course_results['key_counts']['assigned_keys'] %>
-                <%= course_results['key_counts']['in_progress'] %>
-                <%= course_results['key_counts']['completed'] %>
-                <%= course_results['key_counts']['failed'] %>
-                <%= course_results['key_counts']['archived'] %>
+              <tr>
+                <td><%= course_results['course_id'] %></td>
+                <td><%= course_results['key_counts']['total_keys'] %></td>
+                <td><%= course_results['key_counts']['used_keys'] %></td>
+                <td><%= course_results['key_counts']['available_keys'] %></td>
+                <td><%= course_results['key_counts']['assigned_keys'] %></td>
+                <td><%= course_results['key_counts']['in_progress'] %></td>
+                <td><%= course_results['key_counts']['completed'] %></td>
+                <td><%= course_results['key_counts']['failed'] %></td>
+                <td><%= course_results['key_counts']['archived'] %></td>
+               </tr>
             <% end %>
+            </table>
           <% end %>
 
           <% if key == 'number_of_courses_scidea' %>
-            <%= value %>
+            Number of courses at Scidea: <%= value %>
           <% end %>
 
           <% if key == 'number_of_courses_legacy' %>
-            <%= value %>
+            Number of coures at Legacy: <%= value %>
           <% end %>
 
           <% if key == 'discrepancy_between_numbers_of_courses' %>
-            <%= value %>
-          <% end %>
-
-          <% if key == 'course_key_count_comparisons' %>
-            <%= value.to_s %>  <%#TODO break this out with loop and hash key variables%>
+            <% if value > 0%>
+              There is a discrepancy of <%= value %> between the number of courses in Scidea and Legacy.
+            <% else %>
+              The number of courses in Scidea and Legacy match.
+            <% end %>
           <% end %>
           </p>
+      </div>
 
         <br>
         </span>

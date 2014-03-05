@@ -168,6 +168,7 @@ end
 
 configure :development do
   DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+
   DataMapper.finalize # required after all classes using DataMapper to check their integrity. It needs to be called before the app starts interacting with any classes.
 end
 
